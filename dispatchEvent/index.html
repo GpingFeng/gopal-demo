@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p id="btn-id" style="width:50%;position:absolute;">
+    获取事件函数名
+  </p>
+
+  <script>
+    (function () {
+      document.getElementById('btn-id').addEventListener('touchstart', function (e) {
+        f_bbb();
+      });
+      function f_bbb() {
+        window.location.href = "http://baidu.com";
+      }
+    })();
+
+  </script>
+  <!-- 备注说明：
+    上面这段js代码是以<script src="https://a.com/b.js"></script>的第三方js形式加载，不可见的 -->
+
+  <script>
+    // 创建
+    var evt = document.createEvent("HTMLEvents");
+    // 初始化
+    evt.initEvent("touchstart", false, false);
+    document.getElementById('btn-id').dispatchEvent(evt);
+
+
+    /*求解：
+     能不能用js语句直接执行btn-id被绑定的这个事件函数？
+    */
+  </script>
+</body>
+
+</html>
