@@ -1,33 +1,28 @@
 <template>
   <div class="app-container">
-    <!-- {{result}} -->
-    <Parent />
-    <!-- <el-Button>获取父组件foo值</el-Button> -->
-    <!-- props -->
+    {{foo}}
+    <Child  />
   </div>
 </template>
 
 <script>
-// import MyButton from './MyButton';
-import Parent from './Parent';
+import Child from './Child';
 export default {
-  provide: {
-    foo: '我是父组件初始化 Foo 值',
-  },
+  inject: ['foo'],
   components: {
-    // MyButton,
-    Parent
+    Child,
   },
   data() {
     return {
-      // num: 1,
-      result: '',
     }
   },
   methods: {
     onClose() {
-      this.result = '点击了子组件';
-    }
+      this.$emit('close');
+    },
+  },
+  created() {
+    console.log('$listeners:', this.$listeners);
   }
 }
 </script>

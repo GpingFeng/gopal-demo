@@ -103,6 +103,19 @@ export const constantRoutes = [
   },
 
   {
+    path: '/demo2',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Demo2',
+        component: () => import('@/views/form/demo_2'),
+        meta: { title: 'Demo2', icon: 'form' }
+      }
+    ]
+  },
+
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
