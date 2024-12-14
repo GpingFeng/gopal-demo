@@ -79,6 +79,12 @@ export const constantRoutes = [
         name: 'Watch',
         component: () => import('@/views/demo/watch'),
         meta: { title: 'Watch', icon: 'tree' }
+      },
+      {
+        path: 'model',
+        name: 'v-model',
+        component: () => import('@/views/demo/model'),
+        meta: { title: 'v-model', icon: 'tree' }
       }
     ]
   },
